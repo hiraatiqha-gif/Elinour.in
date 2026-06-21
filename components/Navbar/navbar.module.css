@@ -43,15 +43,29 @@
   padding: 14px 40px;
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  height: 130px;
 }
 
-.navLeft  { flex: 0 1 320px; display: flex; align-items: center; justify-content: flex-start; }
-.navRight { flex: 1; display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.navLeft {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 
 .navCenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navRight {
   flex: 1;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
 .logoLink {
@@ -60,7 +74,11 @@
 }
 .logoLink:hover { opacity: 0.75; }
 
-.logo { object-fit: contain;width: 120px; height: 100px; }
+.logo {
+  object-fit: contain;
+  width: 120px;
+  height: 100px;
+}
 
 .iconBtn {
   background: none;
@@ -79,61 +97,63 @@
   color: #7c5cbf;
 }
 
-.cartWrapper { position: relative; display: inline-flex; }
+.cartWrapper {
+  position: relative;
+  display: inline-flex;
+}
+
 .cartBadge {
   position: absolute;
-  top: -5px; right: -5px;
+  top: -5px;
+  right: -5px;
   background: #7c5cbf;
   color: #fff;
   font-family: var(--font-inter), "Inter", sans-serif;
   font-size: 0.6rem;
   font-weight: 700;
-  width: 15px; height: 15px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: 0;
 }
 
 .searchForm {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-width: 0;
-  max-width: 320px;
+  gap: 0;
   position: relative;
 }
 
-.searchExpand {
-  display: flex;
-  align-items: center;
+.searchExpandInput {
   width: 0;
   opacity: 0;
-  overflow: hidden;
   pointer-events: none;
-  transition: width 0.28s ease, opacity 0.2s ease;
-}
-
-.searchExpand.searchOpen {
-  width: 220px;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.searchExpandInput {
-  width: 100%;
-  min-width: 0;
-  border: 1px solid #e9dfee;
-  background: #faf6fb;
+  padding: 10px 0;
+  border: 1px solid transparent;
+  background: transparent;
   border-radius: 999px;
   font-family: var(--font-inter), "Inter", sans-serif;
   font-size: 0.95rem;
-  padding: 10px 16px;
   color: #1a1a1a;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition: width 0.28s ease, opacity 0.22s ease, padding 0.28s ease,
+    border-color 0.2s ease, background 0.2s ease;
 }
 
-.searchExpandInput:focus {
+.searchExpandInput.inputOpen {
+  width: 220px;
+  opacity: 1;
+  pointer-events: auto;
+  padding: 10px 16px;
+  border-color: #e9dfee;
+  background: #faf6fb;
+}
+
+.searchExpandInput.inputOpen:focus {
   outline: none;
   border-color: #7c5cbf;
   background: #fff;
@@ -148,9 +168,11 @@
   cursor: pointer;
   padding: 6px;
 }
+
 .bar {
   display: block;
-  width: 22px; height: 2px;
+  width: 22px;
+  height: 2px;
   background: #3a3a3a;
   border-radius: 2px;
   transition: transform 0.25s, opacity 0.25s;
@@ -191,15 +213,18 @@
   content: "";
   position: absolute;
   bottom: 5px;
-  left: 14px; right: 14px;
+  left: 14px;
+  right: 14px;
   height: 1.5px;
   background: #7c5cbf;
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.22s ease;
 }
+
 .navLink:hover,
 .navLink.active { color: #7c5cbf; }
+
 .navLink:hover::after,
 .navLink.active::after { transform: scaleX(1); }
 
@@ -215,11 +240,12 @@
   background: #fff;
   border: 1px solid #ede6dc;
   border-radius: 10px;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.09);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.09);
   z-index: 200;
   overflow: hidden;
   animation: fadeDown 0.16s ease;
 }
+
 .dropdown:hover .dropdownMenu,
 .dropdownMenu.dropdownMenuOpen { display: block; }
 
@@ -255,6 +281,10 @@
   border-top: 1px solid #f0e8e0;
 }
 
+/* ===========================
+   Mobile
+   =========================== */
+
 @media (max-width: 768px) {
   .navbar { padding: 12px 14px; }
   .logo { width: 90px; height: 75px; }
@@ -262,7 +292,7 @@
   .navRight { gap: 0; }
   .iconBtn { padding: 6px; }
   .iconBtn svg { width: 18px; height: 18px; }
-  .searchExpand.searchOpen { max-width: 130px; }
+  .searchExpandInput.inputOpen { width: 130px; }
   .tagline { font-size: 0.68rem; padding: 5px 10px 7px; letter-spacing: 0.06em; }
 
   .navLinks {
@@ -274,6 +304,7 @@
     transition: max-height 0.3s ease, padding 0.3s;
     border-top: none;
   }
+
   .navLinksOpen {
     max-height: 480px;
     padding: 10px 20px 16px;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { Suspense, useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import SearchBar from "@/components/Shop/SearchBar";
 import FilterBar from "@/components/Shop/FilterBar";
@@ -8,15 +8,11 @@ import ProductGrid from "@/components/Shop/ProductGrid";
 import { filterProducts } from "@/lib/productHelpers";
 import styles from "@/components/Shop/shop.module.css";
 
-export default function ShopPage() {
+function ShopContent() {
   const searchParams = useSearchParams();
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(searchParams.get("search") || "");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedTag, setSelectedTag] = useState("");
-
-  useEffect(() => {
-    setSearchQuery(searchParams.get("search") || "");
-  }, [searchParams]);
 
   const filteredProducts = useMemo(() => {
     return filterProducts({
@@ -47,5 +43,13 @@ export default function ShopPage() {
 
       <ProductGrid products={filteredProducts} />
     </div>
+  );
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ShopContent />
+    </Suspense>
   );
 }

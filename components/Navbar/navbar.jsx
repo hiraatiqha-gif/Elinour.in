@@ -21,8 +21,8 @@ export default function Navbar() {
     const query = searchValue.trim();
     if (query) {
       router.push(`/shop?search=${encodeURIComponent(query)}`);
-    } else {
-      setSearchOpen(true);
+      setSearchOpen(false);
+      setSearchValue("");
     }
   };
 
@@ -30,6 +30,8 @@ export default function Navbar() {
     const query = searchValue.trim();
     if (searchOpen && query) {
       router.push(`/shop?search=${encodeURIComponent(query)}`);
+      setSearchOpen(false);
+      setSearchValue("");
       return;
     }
     setSearchOpen((open) => !open);
@@ -52,12 +54,13 @@ export default function Navbar() {
               placeholder="Search products..."
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
-              className={styles.searchExpandInput}
+              className={`${styles.searchExpandInput} ${searchOpen ? styles.inputOpen : ""}`}
             />
             <button
-              type="submit"
+              type="button"
               className={styles.iconBtn}
               aria-label="Search"
+              onClick={handleSearchIconClick}
             >
               <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <circle cx="11" cy="11" r="8" />
@@ -105,7 +108,6 @@ export default function Navbar() {
       </nav>
 
       <div className={`${styles.navLinks} ${menuOpen ? styles.navLinksOpen : ""}`}>
-
         <Link href="/" className={`${styles.navLink} ${styles.active}`}>
           Home
         </Link>
@@ -135,7 +137,6 @@ export default function Navbar() {
         <Link href="/cart" className={styles.navLink}>Cart</Link>
 
         <Link href="/contact" className={styles.navLink}>Contact</Link>
-
       </div>
 
       <div className={styles.tagline}>
