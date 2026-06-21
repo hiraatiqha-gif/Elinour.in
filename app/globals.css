@@ -1,0 +1,22 @@
+/* globals.css — import in your layout.jsx or _app.jsx */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  background: #fdf8f3;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+}

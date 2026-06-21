@@ -1,0 +1,63 @@
+.page {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  background: #fdf8f3;
+  color: #1a1a1a;
+  padding: 64px 24px 96px;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.lead {
+  text-align: center;
+  color: #6b6b6b;
+  margin-bottom: 2rem;
+}
+
+.cardGroup {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 8px 26px rgba(26, 26, 26, 0.06);
+  border: 1px solid rgba(26, 26, 26, 0.04);
+}
+
+.card h2 {
+  font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  margin-bottom: 8px;
+}
+
+.card p {
+  margin: 0;
+  color: #3a3a3a;
+}
+
+.note {
+  text-align: center;
+  color: #6b6b6b;
+  margin-top: 24px;
+}
+
+@media (max-width: 800px) {
+  .cardGroup {
+    grid-template-columns: 1fr;
+  }
+  .page { padding: 48px 18px 72px; }
+}

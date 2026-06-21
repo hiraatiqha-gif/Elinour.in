@@ -1,0 +1,415 @@
+/* ===========================
+   shop.module.css
+   — Instrument Serif for headings / titles
+   — Inter for body, labels, UI chrome
+   — Brand palette: lavender #c4b5f4 / purple #7c5cbf / cream #fdf8f3
+   =========================== */
+
+.shopContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+.shopHeader {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.shopTitle {
+  font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.shopSubtitle {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.98rem;
+  color: #6b6b6b;
+}
+
+.searchBar {
+  position: relative;
+  margin-bottom: 24px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchInput {
+  width: 100%;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  padding: 12px 40px 12px 16px;
+  font-size: 0.95rem;
+  border: 1.5px solid #ede6dc;
+  border-radius: 8px;
+  background: #fff;
+  transition: border-color 0.25s ease;
+}
+
+.searchInput::placeholder {
+  color: #a39a8f;
+  padding-left: 20px;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #c4b5f4;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a39a8f;
+}
+
+.clearBtn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+.clearBtn:hover {
+  color: #7c5cbf;
+}
+
+.filterBar {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filterLabel {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3a3a3a;
+}
+
+.filterSelect {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  padding: 10px 12px;
+  border: 1.5px solid #ede6dc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-color: white;
+  color: #1a1a1a;
+  transition: border-color 0.25s ease;
+  min-width: 180px;
+}
+
+.filterSelect:hover {
+  border-color: #c4b5f4;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: #7c5cbf;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-5px);
+}
+
+.cardImageLink {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 16px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.imagePlaceholder {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  background-color: #f5f0fb;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.productCard:hover .image {
+  transform: scale(1.04);
+}
+
+.discount {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  background-color: #b5453f;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  z-index: 2;
+}
+
+.bestseller {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  background-color: #7c5cbf;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  z-index: 2;
+}
+
+.newArrival {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  background-color: #c4b5f4;
+  color: #1a0a2e;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  z-index: 2;
+}
+
+.readyToShip {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  background-color: #2e7d4f;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  z-index: 2;
+}
+
+.wishlistBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7c5cbf;
+  cursor: pointer;
+  z-index: 3;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.wishlistBtn:hover {
+  transform: scale(1.1);
+  background: #fff;
+}
+
+.wishlistBtnActive {
+  color: #b5453f;
+}
+
+.bestseller,
+.newArrival {
+  top: 46px;
+}
+
+.taxNote {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.72rem;
+  color: #8a8178;
+  margin-bottom: 2px;
+}
+
+.shippingNote {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.72rem;
+  color: #7c5cbf;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+.addToCartBtn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 11px 0;
+  background: #fff;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 2px;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.addToCartBtn:hover {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+  line-height: 1.3;
+  height: 2.4em;
+  overflow: hidden;
+}
+
+.shortDesc {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.85rem;
+  color: #6b6b6b;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  height: 2.6em;
+  overflow: hidden;
+}
+
+.priceSection {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin-bottom: 12px;
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+.price {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #7c5cbf;
+}
+
+.comparePrice {
+  font-size: 0.85rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.metadata {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.74rem;
+}
+
+.category {
+  padding: 4px 10px;
+  background-color: #f5f0fb;
+  border-radius: 4px;
+  color: #6b6b6b;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+.customizable {
+  padding: 4px 10px;
+  background-color: #eef6ee;
+  border-radius: 4px;
+  color: #2e7d4f;
+  font-weight: 500;
+}
+
+.noProducts {
+  grid-column: 1 / -1;
+  padding: 60px 20px;
+  text-align: center;
+  color: #6b6b6b;
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+.noProducts p {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .shopContainer { padding: 32px 16px 60px; }
+  .shopTitle { font-size: 1.9rem; }
+  .filterBar { gap: 12px; }
+  .filterSelect { min-width: 140px; font-size: 0.85rem; }
+  .productGrid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+  .price { font-size: 1.05rem; }
+  .name { font-size: 1.05rem; }
+}
+
+@media (max-width: 480px) {
+  .productGrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+  .filterBar { flex-direction: column; align-items: center; }
+  .filterSelect { min-width: 100%; }
+  .shopTitle { font-size: 1.6rem; }
+}

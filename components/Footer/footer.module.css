@@ -1,0 +1,234 @@
+.footer {
+  background-color: #c9b3e8;
+  padding: 60px 80px 30px;
+  font-family: "Inter", sans-serif;
+  color: #fff;
+}
+
+/* ── Top Section ── */
+.topSection {
+  display: flex;
+  gap: 160px;
+  margin-bottom: 48px;
+}
+
+/* ── Links Column ── */
+.linksColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.columnHeading {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+  color: #fff;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navLinks a {
+  font-size: 11px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: opacity 0.15s ease;
+}
+
+.navLinks a:hover {
+  opacity: 0.65;
+}
+
+/* ── Contact Column ── */
+.contactColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contactInfo p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contactDetails a {
+  font-size: 13px;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.contactDetails a:hover {
+  opacity: 0.65;
+  text-decoration: underline;
+}
+
+/* ── Newsletter Section ── */
+.newsletterSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.newsletterText {
+  margin: 0;
+  font-size: 14px;
+  color: #fff;
+  font-style: italic;
+}
+
+.newsletterForm {
+  display: flex;
+  align-items: center;
+  border: 1px solid #3b2e5a80;
+  width: 240px;
+  background: transparent;
+}
+
+.emailInput {
+  flex: 1;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  color: #3ff;
+  font-family: inherit;
+}
+
+.emailInput::placeholder {
+  color: #3b2e5a99;
+  letter-spacing: 0.04em;
+}
+
+.submitButton {
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  border-left: 1px solid #3b2e5a80;
+  cursor: pointer;
+  font-size: 16px;
+  color: #3b2e5a;
+  line-height: 1;
+  transition: opacity 0.15s ease;
+}
+
+.submitButton:hover {
+  opacity: 0.6;
+}
+
+/* ── Social Icons ── */
+.socialIcons {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+  /* Align to right like the screenshot */
+  position: absolute;
+  right: 80px;
+  bottom: 220px; /* adjust per layout */
+}
+
+/* Override: put social on same row as newsletter */
+.newsletterSection {
+  position: relative;
+}
+
+.socialIcons a {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.15s ease;
+}
+
+.socialIcons a:hover {
+  opacity: 0.6;
+}
+
+/* ── Bottom Bar ── */
+.bottomBar {
+  border-top: 1px solid #3b2e5a30;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.paymentIcons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.paymentIcons img {
+  height: 24px;
+  width: auto;
+}
+
+.legalLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #fff;
+}
+
+.legalLinks a {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.legalLinks a:hover {
+  text-decoration: underline;
+}
+
+.dot {
+  color: #3b2e5a80;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 24px 24px;
+  }
+
+  .topSection {
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .socialIcons {
+    position: static;
+    margin-top: 8px;
+  }
+
+  .newsletterForm {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .legalLinks {
+    font-size: 10px;
+    gap: 4px;
+  }
+}

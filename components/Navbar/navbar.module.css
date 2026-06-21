@@ -1,0 +1,304 @@
+/* ===========================
+   navbar.module.css
+   — Instrument Serif for brand text / headings
+   — Inter for nav links, labels, UI chrome
+   =========================== */
+
+.announcementBar {
+  background-color: #c4b5f4;
+  color: #1a1a1a;
+  text-align: center;
+  padding: 9px 16px;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.announcementBar strong {
+  font-weight: 700;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.announcementBar:hover .arrow {
+  transform: translateX(5px);
+}
+
+.header {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #ede6dc;
+  position: relative;
+  z-index: 100;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.navLeft  { flex: 0 1 320px; display: flex; align-items: center; justify-content: flex-start; }
+.navRight { flex: 1; display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+
+.navCenter {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.logoLink {
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+.logoLink:hover { opacity: 0.75; }
+
+.logo { object-fit: contain;width: 120px; height: 100px; }
+
+.iconBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: #3a3a3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.18s, color 0.18s;
+}
+.iconBtn:hover {
+  background: #f3eef8;
+  color: #7c5cbf;
+}
+
+.cartWrapper { position: relative; display: inline-flex; }
+.cartBadge {
+  position: absolute;
+  top: -5px; right: -5px;
+  background: #7c5cbf;
+  color: #fff;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchForm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  max-width: 320px;
+  position: relative;
+}
+
+.searchExpand {
+  display: flex;
+  align-items: center;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: width 0.28s ease, opacity 0.2s ease;
+}
+
+.searchExpand.searchOpen {
+  width: 220px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.searchExpandInput {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #e9dfee;
+  background: #faf6fb;
+  border-radius: 999px;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.95rem;
+  padding: 10px 16px;
+  color: #1a1a1a;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.searchExpandInput:focus {
+  outline: none;
+  border-color: #7c5cbf;
+  background: #fff;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.bar {
+  display: block;
+  width: 22px; height: 2px;
+  background: #3a3a3a;
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 0 40px 2px;
+  max-width: 1400px;
+  margin: 0 auto;
+  border-top: 1px solid #f0e8e0;
+}
+
+.navLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3a3a3a;
+  padding: 11px 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 14px; right: 14px;
+  height: 1.5px;
+  background: #7c5cbf;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.22s ease;
+}
+.navLink:hover,
+.navLink.active { color: #7c5cbf; }
+.navLink:hover::after,
+.navLink.active::after { transform: scaleX(1); }
+
+.dropdown { position: relative; }
+
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 180px;
+  background: #fff;
+  border: 1px solid #ede6dc;
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.09);
+  z-index: 200;
+  overflow: hidden;
+  animation: fadeDown 0.16s ease;
+}
+.dropdown:hover .dropdownMenu,
+.dropdownMenu.dropdownMenuOpen { display: block; }
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.dropdownItem {
+  display: block;
+  padding: 10px 18px;
+  font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  font-size: 0.92rem;
+  font-style: normal;
+  color: #3a3a3a;
+  text-decoration: none;
+  transition: background 0.14s, color 0.14s;
+  letter-spacing: 0.01em;
+}
+.dropdownItem:hover {
+  background: #f5f0fb;
+  color: #7c5cbf;
+}
+
+.tagline {
+  text-align: center;
+  font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: #7a7068;
+  padding: 6px 16px 8px;
+  border-top: 1px solid #f0e8e0;
+}
+
+@media (max-width: 768px) {
+  .navbar { padding: 12px 14px; }
+  .logo { width: 90px; height: 75px; }
+  .hamburger { display: flex; }
+  .navRight { gap: 0; }
+  .iconBtn { padding: 6px; }
+  .iconBtn svg { width: 18px; height: 18px; }
+  .searchExpand.searchOpen { max-width: 130px; }
+  .tagline { font-size: 0.68rem; padding: 5px 10px 7px; letter-spacing: 0.06em; }
+
+  .navLinks {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s;
+    border-top: none;
+  }
+  .navLinksOpen {
+    max-height: 480px;
+    padding: 10px 20px 16px;
+    border-top: 1px solid #f0e8e0;
+  }
+
+  .navLink { padding: 10px 4px; font-size: 0.8rem; }
+  .navLink::after { left: 4px; right: 4px; }
+
+  .dropdown { width: 100%; }
+
+  .dropdownMenu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    border-left: 2px solid #e8ddf5;
+    margin-left: 12px;
+    animation: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .announcementBar { font-size: 0.68rem; padding: 7px 10px; }
+  .logo { width: 78px; height: 64px; }
+  .navbar { padding: 10px 10px; }
+}

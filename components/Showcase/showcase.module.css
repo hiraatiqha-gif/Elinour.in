@@ -1,0 +1,135 @@
+/* ===========================
+   showcase.module.css
+   — used for New Arrivals & Best Sellers sections
+   — Instrument Serif heading / Inter body, brand palette
+   =========================== */
+
+.section {
+  padding: 4rem 1.5rem;
+  background: transparent;
+}
+
+.sectionAlt {
+  background: #f8f1fb;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.headerRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.heading {
+  font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 400;
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #c9b3e8;
+  text-decoration-thickness: 2px;
+}
+
+.viewAll {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7c5cbf;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.viewAll:hover {
+  border-color: #7c5cbf;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f5f0fb;
+  margin-bottom: 14px;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: #c4b5f4;
+  color: #1a0a2e;
+  z-index: 2;
+}
+
+.cardName {
+  font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.cardPrice {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #7c5cbf;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .section {
+    padding: 3rem 1rem;
+  }
+}
