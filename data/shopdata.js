@@ -1530,7 +1530,7 @@ export const products = [
     materials: [],
     size: "",
     weight: "",
-    images: ["/products/sorbet-hand-harness-1.jpeg"],
+    images: ["/products/sorbet-hand-harness-1.jpeg", "/products/sorbet-mangtika-1.jpeg", "/products/sorbet-necklace-1.jpeg"],
     tags: ["bestseller"],
     featured: true,
     inStock: true,
