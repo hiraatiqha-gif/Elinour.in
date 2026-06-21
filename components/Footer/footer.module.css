@@ -79,6 +79,18 @@
   text-decoration: underline;
 }
 
+.storeLocation {
+  margin-top: 16px;
+  max-width: 320px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.storeLocation strong {
+  color: #fff;
+}
+
 /* ── Newsletter Section ── */
 .newsletterSection {
   display: flex;

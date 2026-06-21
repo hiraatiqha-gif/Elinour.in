@@ -4,6 +4,7 @@ import Hero from "@/components/Hero/hero";
 import ProductShowcase from "@/components/Showcase/ProductShowcase";
 import Reviews from "@/components/Reviews/reviews";
 import FAQ from "@/components/FAQ/faq";
+import WornByCustomers from "@/components/WornByCustomers/wornByCustomers";
 import Footer from "@/components/Footer/footer";
 import { getProductsByTag } from "@/lib/productHelpers";
 
@@ -28,6 +29,7 @@ export default function Home() {
       />
       <Reviews />
       <FAQ />
+      <WornByCustomers />
       <Footer />
     </main>
   );

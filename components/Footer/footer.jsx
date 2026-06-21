@@ -27,6 +27,11 @@ const Footer = () => {
             <a href="mailto:elinour.in@gmail.com">elinour.in@gmail.com</a>
             <a href="tel:+919013289252">+91 90132 89252</a>
           </div>
+          <div className={styles.storeLocation}>
+            <p>
+              <strong>Offline store location:</strong> Elixir pop up store, Shahpur Jat, Delhi
+            </p>
+          </div>
         </div>
       </div>
 

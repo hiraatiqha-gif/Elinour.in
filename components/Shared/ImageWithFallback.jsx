@@ -1,11 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ImageWithFallback({ src, alt = "", className = "", fill = false, style = {} }) {
   const placeholder = "/placeholder-product.svg";
   const [currentSrc, setCurrentSrc] = useState(src || placeholder);
+
+  useEffect(() => {
+    setCurrentSrc(src || placeholder);
+  }, [src]);
 
   return (
     <Image

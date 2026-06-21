@@ -1,18 +1,9 @@
 /* ===========================
    hero.module.css
-   — Instrument Serif for headings
-   — Inter for sub-text and buttons
    =========================== */
 
-/*
-  KEY FIX: Next.js <Image fill> absolutely positions itself inside
-  the nearest ancestor with position != static. That must be .hero.
-  .hero must also have an explicit height — vh units work perfectly.
-  The old imageWrapper div had no height and broke the fill sizing.
-*/
-
 .hero {
-  position: relative;     /* ← fill anchor */
+  position: relative;
   width: 100%;
   height: 88vh;
   min-height: 520px;
@@ -23,17 +14,43 @@
   justify-content: flex-start;
 }
 
-/* Layer 0 — Image */
-.heroImage {
-  object-fit: cover;          /* no stretching / blurriness */
+/* ── Desktop static image (hidden on mobile) ── */
+.desktopHero {
+  position: absolute;
+  inset: 0;
   z-index: 0;
-  transition: transform 7s ease;
-}
-.hero:hover .heroImage {
-  transform: scale(1.04);
 }
 
-/* Layer 1 — Gradient overlay */
+.heroImage {
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* ── Mobile carousel (hidden on desktop) ── */
+.mobileCarousel {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+}
+
+.slideIn  { animation: fadeIn 0.9s ease forwards; }
+.slideOut { animation: fadeOut 0.9s ease forwards; }
+
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+.heroImageMobile {
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* ── Overlay ── */
 .overlay {
   position: absolute;
   inset: 0;
@@ -44,9 +61,10 @@
     rgba(12, 6, 24, 0.25) 48%,
     transparent 100%
   );
+  pointer-events: none;
 }
 
-/* Layer 2 — Text content */
+/* ── Text content ── */
 .content {
   position: relative;
   z-index: 2;
@@ -60,7 +78,6 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Eyebrow — Inter */
 .eyebrow {
   display: inline-block;
   font-family: var(--font-inter), "Inter", sans-serif;
@@ -75,7 +92,6 @@
   animation: riseIn 0.85s 0.1s ease both;
 }
 
-/* Heading — Instrument Serif */
 .heading {
   font-family: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
   font-size: clamp(3rem, 6.5vw, 5.2rem);
@@ -90,7 +106,6 @@
   color: #ddc9f8;
 }
 
-/* Sub-text — Inter */
 .subtext {
   font-family: var(--font-inter), "Inter", sans-serif;
   font-size: 0.97rem;
@@ -102,7 +117,6 @@
   animation: riseIn 0.85s 0.3s ease both;
 }
 
-/* Buttons */
 .actions {
   display: flex;
   align-items: center;
@@ -147,11 +161,43 @@
   transform: translateY(-2px);
 }
 
+/* ── Dots (mobile only) ── */
+.dots {
+  position: absolute;
+  bottom: 28px;
+  right: 36px;
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(253, 248, 243, 0.45);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.dotActive {
+  background: #c4b5f4;
+  transform: scale(1.35);
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .content { padding: 0 28px 48px; }
+  .desktopHero   { display: none; }
+  .mobileCarousel { display: block; }
+
+  .content { padding: 0 28px 56px; }
   .heading { font-size: clamp(2.4rem, 10vw, 3.4rem); }
+  .dots { bottom: 20px; right: 20px; }
 }
+
 @media (max-width: 480px) {
   .hero { height: 92vh; }
   .actions { flex-direction: column; align-items: flex-start; }
