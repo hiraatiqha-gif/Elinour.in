@@ -6,7 +6,6 @@ import styles from "./hero.module.css";
 
 const ALL_WHATSAPP_IMAGES = [
   { src: "/products/WhatsApp Image 2026-05-31 at 15.51.01.jpeg",     orient: "landscape" },
-  { src: "/products/WhatsApp Image 2026-05-31 at 15.51.05 (2).jpeg", orient: "landscape" },
   { src: "/products/WhatsApp Image 2026-05-31 at 15.47.51 (1).jpeg", orient: "portrait" },
   { src: "/products/WhatsApp Image 2026-05-31 at 15.47.51.jpeg",      orient: "portrait" },
   { src: "/products/WhatsApp Image 2026-05-31 at 15.50.42.jpeg",      orient: "portrait" },
@@ -116,7 +115,7 @@ export default function Hero() {
       <div className={styles.content}>
         <span className={styles.eyebrow}>New Collection</span>
         <h1 className={styles.heading}>
-          Wear the <em>Luxury.</em>
+          Your Vision, Our <em>Craft.</em>
         </h1>
         <p className={styles.subtext}>
           We turn your Jewellery dreams into reality.

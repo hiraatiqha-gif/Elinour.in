@@ -1495,47 +1495,4 @@ export const products = [
     customizable: false,
     whatsappCheckoutName: "Set Of Three Rings"
   },
-
-  // ── SETS ──────────────────────────────────────────────
-
-  {
-    id: "marina-set",
-    name: "Marina Set",
-    slug: "marina-set",
-    category: "sets",
-    price: 0,
-    comparePrice: null,
-    description: "Complete Marina set featuring earrings, hand harness, maangtika and necklace for a polished, coordinated look.",
-    shortDescription: "Complete Marina set — earrings, hand harness, maangtika & necklace",
-    materials: [],
-    size: "",
-    weight: "",
-    images: ["/products/marina-earrings-1.jpeg", "/products/marina-hand-harness-1.jpeg", "/products/marina-mangtika-1.jpeg"],
-    tags: ["bestseller"],
-    featured: true,
-    inStock: true,
-    customizable: false,
-    whatsappCheckoutName: "Marina Set"
-  },
-
-  {
-    id: "sorbet-set",
-    name: "Sorbet Set",
-    slug: "sorbet-set",
-    category: "sets",
-    price: 0,
-    comparePrice: null,
-    description: "A curated handcrafted piece finished with refined detailing and effortless elegance.",
-    shortDescription: "Handcrafted jewellery piece with refined detailing.",
-    materials: [],
-    size: "",
-    weight: "",
-    images: ["/products/sorbet-hand-harness-1.jpeg", "/products/sorbet-mangtika-1.jpeg", "/products/sorbet-necklace-1.jpeg"],
-    tags: ["bestseller"],
-    featured: true,
-    inStock: true,
-    customizable: false,
-    whatsappCheckoutName: "Sorbet Set"
-  },
-
 ];

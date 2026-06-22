@@ -10,13 +10,16 @@ const WHATSAPP_NUMBER = "+919013289252";
 const FREE_SHIPPING_THRESHOLD = 2500;
 
 export default function CartPage() {
-  const { cart, removeFromCart, updateQuantity, getSubtotal, clearCart } =
+  const { cart, removeFromCart, updateQuantity, getSubtotal, clearCart, getShipping, getDiscount, getTotal } =
     useCart();
   const [urgentOrder, setUrgentOrder] = useState(false);
 
   const subtotal = getSubtotal();
   const remainingForFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
   const progressPercent = Math.min(100, (subtotal / FREE_SHIPPING_THRESHOLD) * 100);
+  const shipping = getShipping();
+  const discount = getDiscount();
+  const total = getTotal();
 
   const handleCheckout = () => {
     if (cart.length === 0) return;
@@ -29,7 +32,7 @@ export default function CartPage() {
       ? "\n\n⚡ URGENT ORDER — please advise if expedited dispatch is possible."
       : "";
 
-    const message = `Hello, I'd like to place an order.\n\nItems:\n${itemsList}${urgentLine}\n\nTotal: ${formatPrice(subtotal)}\n\nCustomer Name:\nPhone Number:`;
+    const message = `Hello, I'd like to place an order.\n\nItems:\n${itemsList}${urgentLine}\n\nSubtotal: ${formatPrice(subtotal)}\nDiscount: ${formatPrice(discount)}\nShipping: ${formatPrice(shipping)}\n\nTotal: ${formatPrice(total)}\n\nCustomer Name:\nPhone Number:`;
 
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
       message
@@ -147,14 +150,21 @@ export default function CartPage() {
 
           <div className={styles.summaryRow}>
             <span>Shipping</span>
-            <span>{remainingForFreeShipping > 0 ? "₹150 (domestic)" : "Free"}</span>
+            <span>{shipping > 0 ? formatPrice(shipping) + " (domestic)" : "Free"}</span>
           </div>
+
+          {discount > 0 && (
+            <div className={styles.summaryRow}>
+              <span>Discount</span>
+              <span>-{formatPrice(discount)}</span>
+            </div>
+          )}
 
           <div className={styles.divider}></div>
 
           <div className={styles.totalRow}>
             <span>Total</span>
-            <span>{formatPrice(subtotal)}</span>
+            <span>{formatPrice(total)}</span>
           </div>
 
           <label className={styles.urgentNote}>

@@ -5,10 +5,11 @@ import { HERO_SRCS } from "@/components/Hero/hero";
 
 // All WhatsApp images — only use those NOT in the hero
 const ALL_WHATSAPP = [
+  "/products/customer_photo1.jpeg",
+  "/products/customer_photo2.jpeg",
   "/products/WhatsApp Image 2026-05-31 at 15.47.52.jpeg",
   "/products/WhatsApp Image 2026-05-31 at 15.50.43 (1).jpeg",
   "/products/WhatsApp Image 2026-05-31 at 15.50.43.jpeg",
-  "/products/WhatsApp Image 2026-05-31 at 15.50.50 (1).jpeg",
   "/products/WhatsApp Image 2026-05-31 at 15.50.50.jpeg",
   "/products/WhatsApp Image 2026-05-31 at 15.51.07.jpeg",
   "/products/WhatsApp Image 2026-05-31 at 15.51.08 (1).jpeg",

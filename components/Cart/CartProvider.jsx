@@ -78,6 +78,25 @@ export const CartProvider = ({ children }) => {
   const getSubtotal = () =>
     cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
+  // Shipping: ₹150 for orders with pre-discount subtotal below 2500
+  const getShipping = () => {
+    const subtotal = getSubtotal();
+    return subtotal < 2500 && subtotal > 0 ? 150 : 0;
+  };
+
+  // Discount: 10% off when pre-discount subtotal is greater than 5000
+  const getDiscount = () => {
+    const subtotal = getSubtotal();
+    return subtotal > 5000 ? +(subtotal * 0.1).toFixed(2) : 0;
+  };
+
+  const getTotal = () => {
+    const subtotal = getSubtotal();
+    const discount = getDiscount();
+    const shipping = getShipping();
+    return +(subtotal - discount + shipping).toFixed(2);
+  };
+
   const value = {
     cart,
     addToCart,
@@ -86,6 +105,9 @@ export const CartProvider = ({ children }) => {
     clearCart,
     getTotalQuantity,
     getSubtotal,
+    getShipping,
+    getDiscount,
+    getTotal,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
