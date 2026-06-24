@@ -11,8 +11,8 @@ import styles from "@/components/Shop/shop.module.css";
 function ShopContent() {
   const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState(searchParams.get("search") || "");
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedTag, setSelectedTag] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(searchParams.get("category") || "");
+  const [selectedTag, setSelectedTag] = useState(searchParams.get("tag") || "");
 
   const filteredProducts = useMemo(() => {
     return filterProducts({

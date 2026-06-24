@@ -33,6 +33,14 @@ export default function ProductInfo({ product }) {
   );
 
   const wishlisted = isWishlisted(product.id);
+  const isResinProduct = product.materials?.some((material) =>
+    material.toLowerCase().includes("resin")
+  );
+  const whatsappNumber = "919013289252";
+  const whatsappCustomizeUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    `Hi, I would like to customise the resin piece: ${product.name}`
+  )}`;
+  const showColourCustomisation = product.customizable && !isResinProduct;
 
   const handleAddToCart = () => {
     addToCart(product, quantity);
@@ -102,7 +110,7 @@ export default function ProductInfo({ product }) {
         </div>
       </div>
 
-      {product.customizable && (
+      {showColourCustomisation && (
         <div className={styles.colourSection}>
           <label htmlFor="colour" className={styles.colourLabel}>
             Colour customisation (optional):
@@ -162,6 +170,17 @@ export default function ProductInfo({ product }) {
           Buy it now
         </button>
       </div>
+
+      {isResinProduct && (
+        <a
+          href={whatsappCustomizeUrl}
+          target="_blank"
+          rel="noreferrer"
+          className={styles.customizeButton}
+        >
+          Customize? Chat to us via WhatsApp
+        </a>
+      )}
 
       <button
         type="button"

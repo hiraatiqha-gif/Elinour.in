@@ -468,6 +468,32 @@
   cursor: not-allowed;
 }
 
+.wishlistLink,
+.customizeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #1a9a4f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 18px;
+  margin-top: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.customizeButton:hover {
+  background: #16783d;
+  transform: translateY(-1px);
+}
+
 .wishlistLink {
   display: flex;
   align-items: center;
