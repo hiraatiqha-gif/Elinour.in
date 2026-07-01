@@ -178,7 +178,7 @@ export default function ProductInfo({ product }) {
           rel="noreferrer"
           className={styles.customizeButton}
         >
-          Customize? Chat to us via WhatsApp
+          Connect via WhatsApp for custom orders
         </a>
       )}
 
