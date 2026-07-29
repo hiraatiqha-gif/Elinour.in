@@ -955,6 +955,27 @@ export const products = [
     whatsappCheckoutName: "Swan Necklace"
   },
 
+  {
+    id: "dew-drop-necklace",
+    name: "Dew Drop Necklace",
+    slug: "dew-drop-necklace",
+    category: "necklaces",
+    price: 1500,
+    comparePrice: null,
+    description: "Light as air and bathed in sunlight. Handcrafted with crystal-clear resin, this delicate drop necklace creates the illusion of floating dew droplets suspended against your collarbone. Designed on a subtle, near-invisible line, each drop catches and refracts the light for an organic, luminous finish. Perfect for effortless daily wear or layered elegance.",
+    shortDescription: "Resin dew drop necklace on nylon thread",
+    materials: ["Resin", "Nylon thread"],
+    size: "Free size",
+    weight: "5g",
+    genericType: "Necklace",
+    images: ["/products/dew-drop-necklace.jpeg"],
+    tags: [],
+    featured: false,
+    inStock: true,
+    customizable: false,
+    whatsappCheckoutName: "Dew Drop Necklace"
+  },
+
   // ── RINGS ──────────────────────────────────────────────
 
   {
